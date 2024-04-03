@@ -1,4 +1,4 @@
-# React + Vite + Docker
+# React + Vite + Docker + Docker hub
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
