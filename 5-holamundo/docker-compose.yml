@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  app:
+    build: ./frontend
+    ports:
+      - 80:5173
+    volumes:
+      - ./frontend/src:/app/src
+  api:
+    build: ./backend
+    ports:
+      - 3000:3000
+    environment:
+      DB_URL: mongodb://db/gamify
+    volumes:
+      - ./backend/app:/app/app
+    depends_on:
+      - db
+  # api-tests:
+  #   image: holamundo-api
+  #   environment:
+  #     DB_URL: mongodb://db/gamifytest
+  #   volumes:
+  #     - ./backend/app:/app/app
+  #     - ./backend/tests:/app/tests
+  #   depends_on:
+  #     - db
+  #   command: npm test
+  db:
+    image: mongo:5.0.19-focal
+    ports:
+      - 27017:27017
+    volumes:
+      - gamify:/data/db
+
+volumes:
+  gamify:
