@@ -17,6 +17,16 @@ services:
       - ./backend/app:/app/app
     depends_on:
       - db
+  api-test:
+    image: 5-holamundo-api
+    environment:
+      - DB_URL=mongodb://db/gamify
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/tests:/app/tests
+    depends_on:
+      - db
+    command: npm test
   db:
     image: mongo:5.0.19-focal
     ports:
