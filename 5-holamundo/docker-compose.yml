@@ -15,6 +15,8 @@ services:
       DB_URL: mongodb://db/gamify
     volumes:
       - ./backend/app:/app/app
+    depends_on:
+      - db
   db:
     image: mongo:5.0.19-focal
     ports:
