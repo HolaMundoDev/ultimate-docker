@@ -1,0 +1,10 @@
+nombre: Nicolas,
+apellido: Schurmann,
+edad: 37,
+activo: true,
+etiquetas: 
+	- Instructor,
+	- Desarrollador
+direccion: 
+	calle: Queen st,
+	numero: 503
