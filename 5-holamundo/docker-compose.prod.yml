@@ -2,13 +2,16 @@ version: '3.8'
 
 services:
   app: 
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        VITE_API_URL: http://170.64.203.196:3000
     ports:
-      - 80:5173
+      - 80:80
     volumes:
       - ./frontend/src:/app/src
-    environment:
-      VITE_API_URL: http://170.64.203.196:3000
+
   api:
     build: ./backend
     ports:
